@@ -31,8 +31,7 @@ const program_startUP = (select, No) => {
     console.clear();
     const selectNo = Number(select);
     const loopNo = Number(No);
-    if (!selectNo) return console.log("入力されたデータが無効です。");
-    if (!loopNo) return console.log("入力されたデータが無効です。");
+    if (!selectNo || !loopNo) return console.log("入力されたデータが無効です。");
     for (let i = 0; i != loopNo; i++) {
         switch (selectNo) {
             case 1: { console.log("https://pay.paypay.ne.jp/" + random(8)); break; }
@@ -44,7 +43,7 @@ const program_startUP = (select, No) => {
     }
 };
 const random = length => {
-    const string = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789"
+    const string = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789";
     return Array.from(require("crypto").randomFillSync(new Uint32Array(length))).map(n => string[n % string.length]).join("");
 };
 start();
